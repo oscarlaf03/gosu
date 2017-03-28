@@ -2191,13 +2191,13 @@ namespace Swig {
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_Gosu__Button swig_types[0]
-#define SWIGTYPE_p_Gosu__Color swig_types[1]
-#define SWIGTYPE_p_Gosu__Font swig_types[2]
-#define SWIGTYPE_p_Gosu__GLTexInfo swig_types[3]
-#define SWIGTYPE_p_Gosu__Image swig_types[4]
-#define SWIGTYPE_p_Gosu__Sample swig_types[5]
-#define SWIGTYPE_p_Gosu__SampleInstance swig_types[6]
+#define SWIGTYPE_p_Gosu__Audio swig_types[0]
+#define SWIGTYPE_p_Gosu__AudioStream swig_types[1]
+#define SWIGTYPE_p_Gosu__Button swig_types[2]
+#define SWIGTYPE_p_Gosu__Color swig_types[3]
+#define SWIGTYPE_p_Gosu__Font swig_types[4]
+#define SWIGTYPE_p_Gosu__GLTexInfo swig_types[5]
+#define SWIGTYPE_p_Gosu__Image swig_types[6]
 #define SWIGTYPE_p_Gosu__Song swig_types[7]
 #define SWIGTYPE_p_Gosu__TextInput swig_types[8]
 #define SWIGTYPE_p_Gosu__Window swig_types[9]
@@ -7515,16 +7515,16 @@ fail:
 }
 
 
-static swig_class SwigClassSampleInstance;
+static swig_class SwigClassAudioStream;
 
 SWIGINTERN VALUE
 #ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-_wrap_SampleInstance_allocate(VALUE self)
+_wrap_AudioStream_allocate(VALUE self)
 #else
-_wrap_SampleInstance_allocate(int argc, VALUE *argv, VALUE self)
+_wrap_AudioStream_allocate(int argc, VALUE *argv, VALUE self)
 #endif
 {
-  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_Gosu__SampleInstance);
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_Gosu__AudioStream);
 #ifndef HAVE_RB_DEFINE_ALLOC_FUNC
   rb_obj_call_init(vresult, argc, argv);
 #endif
@@ -7533,32 +7533,32 @@ _wrap_SampleInstance_allocate(int argc, VALUE *argv, VALUE self)
 
 
 SWIGINTERN VALUE
-_wrap_new_SampleInstance(int argc, VALUE *argv, VALUE self) {
+_wrap_new_AudioStream(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   int arg2 ;
   int val1 ;
   int ecode1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  const char *classname SWIGUNUSED = "Gosu::SampleInstance";
-  Gosu::SampleInstance *result = 0 ;
+  const char *classname SWIGUNUSED = "Gosu::AudioStream";
+  Gosu::AudioStream *result = 0 ;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
   }
   ecode1 = SWIG_AsVal_int(argv[0], &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","SampleInstance", 1, argv[0] ));
+    SWIG_exception_fail(SWIG_ArgError(ecode1), Ruby_Format_TypeError( "", "int","AudioStream", 1, argv[0] ));
   } 
   arg1 = static_cast< int >(val1);
   ecode2 = SWIG_AsVal_int(argv[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","SampleInstance", 2, argv[1] ));
+    SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "int","AudioStream", 2, argv[1] ));
   } 
   arg2 = static_cast< int >(val2);
   {
     try {
-      result = (Gosu::SampleInstance *)new Gosu::SampleInstance(arg1,arg2);
+      result = (Gosu::AudioStream *)new Gosu::AudioStream(arg1,arg2);
       DATA_PTR(self) = result;
       SWIG_RubyAddTracking(result, self);
     }
@@ -7573,8 +7573,8 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_playingq___(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_playingq___(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool result;
@@ -7583,14 +7583,14 @@ _wrap_SampleInstance_playingq___(int argc, VALUE *argv, VALUE self) {
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance const *","playing", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream const *","playing", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   {
     try {
-      result = (bool)((Gosu::SampleInstance const *)arg1)->playing();
+      result = (bool)((Gosu::AudioStream const *)arg1)->playing();
     }
     catch (const std::exception& e) {
       SWIG_exception(SWIG_RuntimeError, e.what());
@@ -7604,8 +7604,8 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_pausedq___(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_pausedq___(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool result;
@@ -7614,14 +7614,14 @@ _wrap_SampleInstance_pausedq___(int argc, VALUE *argv, VALUE self) {
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance const *","paused", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream const *","paused", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   {
     try {
-      result = (bool)((Gosu::SampleInstance const *)arg1)->paused();
+      result = (bool)((Gosu::AudioStream const *)arg1)->paused();
     }
     catch (const std::exception& e) {
       SWIG_exception(SWIG_RuntimeError, e.what());
@@ -7635,19 +7635,19 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_pause(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_pause(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance *","pause", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream *","pause", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   {
     try {
       (arg1)->pause();
@@ -7663,19 +7663,19 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_resume(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_resume(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance *","resume", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream *","resume", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   {
     try {
       (arg1)->resume();
@@ -7691,19 +7691,19 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_stop(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_stop(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance *","stop", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream *","stop", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   {
     try {
       (arg1)->stop();
@@ -7719,8 +7719,8 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_volumee___(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_volumee___(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7730,11 +7730,11 @@ _wrap_SampleInstance_volumee___(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance *","change_volume", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream *","change_volume", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   ecode2 = SWIG_AsVal_double(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "double","change_volume", 2, argv[0] ));
@@ -7755,8 +7755,8 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_pane___(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_pane___(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7766,11 +7766,11 @@ _wrap_SampleInstance_pane___(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance *","change_pan", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream *","change_pan", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   ecode2 = SWIG_AsVal_double(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "double","change_pan", 2, argv[0] ));
@@ -7791,8 +7791,8 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_SampleInstance_speede___(int argc, VALUE *argv, VALUE self) {
-  Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *) 0 ;
+_wrap_AudioStream_speede___(int argc, VALUE *argv, VALUE self) {
+  Gosu::AudioStream *arg1 = (Gosu::AudioStream *) 0 ;
   double arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -7802,11 +7802,11 @@ _wrap_SampleInstance_speede___(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__SampleInstance, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__AudioStream, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::SampleInstance *","change_speed", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::AudioStream *","change_speed", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::SampleInstance * >(argp1);
+  arg1 = reinterpret_cast< Gosu::AudioStream * >(argp1);
   ecode2 = SWIG_AsVal_double(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "double","change_speed", 2, argv[0] ));
@@ -7827,22 +7827,22 @@ fail:
 
 
 SWIGINTERN void
-free_Gosu_SampleInstance(void *self) {
-    Gosu::SampleInstance *arg1 = (Gosu::SampleInstance *)self;
+free_Gosu_AudioStream(void *self) {
+    Gosu::AudioStream *arg1 = (Gosu::AudioStream *)self;
     SWIG_RubyRemoveTracking(arg1);
     delete arg1;
 }
 
-static swig_class SwigClassSample;
+static swig_class SwigClassAudio;
 
 SWIGINTERN VALUE
 #ifdef HAVE_RB_DEFINE_ALLOC_FUNC
-_wrap_Sample_allocate(VALUE self)
+_wrap_Audio_allocate(VALUE self)
 #else
-_wrap_Sample_allocate(int argc, VALUE *argv, VALUE self)
+_wrap_Audio_allocate(int argc, VALUE *argv, VALUE self)
 #endif
 {
-  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_Gosu__Sample);
+  VALUE vresult = SWIG_NewClassInstance(self, SWIGTYPE_p_Gosu__Audio);
 #ifndef HAVE_RB_DEFINE_ALLOC_FUNC
   rb_obj_call_init(vresult, argc, argv);
 #endif
@@ -7851,11 +7851,11 @@ _wrap_Sample_allocate(int argc, VALUE *argv, VALUE self)
 
 
 SWIGINTERN VALUE
-_wrap_new_Sample(int argc, VALUE *argv, VALUE self) {
+_wrap_new_Audio(int argc, VALUE *argv, VALUE self) {
   std::string *arg1 = 0 ;
   int res1 = SWIG_OLDOBJ ;
-  const char *classname SWIGUNUSED = "Gosu::Sample";
-  Gosu::Sample *result = 0 ;
+  const char *classname SWIGUNUSED = "Gosu::Audio";
+  Gosu::Audio *result = 0 ;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -7864,16 +7864,16 @@ _wrap_new_Sample(int argc, VALUE *argv, VALUE self) {
     std::string *ptr = (std::string *)0;
     res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
     if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","Sample", 1, argv[0] )); 
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","Audio", 1, argv[0] )); 
     }
     if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","Sample", 1, argv[0])); 
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","Audio", 1, argv[0])); 
     }
     arg1 = ptr;
   }
   {
     try {
-      result = (Gosu::Sample *)new Gosu::Sample((std::string const &)*arg1);
+      result = (Gosu::Audio *)new Gosu::Audio((std::string const &)*arg1);
       DATA_PTR(self) = result;
       SWIG_RubyAddTracking(result, self);
     }
@@ -7890,8 +7890,8 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_Sample_play(int argc, VALUE *argv, VALUE self) {
-  Gosu::Sample *arg1 = (Gosu::Sample *) 0 ;
+_wrap_Audio_play(int argc, VALUE *argv, VALUE self) {
+  Gosu::Audio *arg1 = (Gosu::Audio *) 0 ;
   double arg2 = (double) 1 ;
   double arg3 = (double) 1 ;
   bool arg4 = (bool) false ;
@@ -7903,17 +7903,17 @@ _wrap_Sample_play(int argc, VALUE *argv, VALUE self) {
   int ecode3 = 0 ;
   bool val4 ;
   int ecode4 = 0 ;
-  SwigValueWrapper< Gosu::SampleInstance > result;
+  SwigValueWrapper< Gosu::AudioStream > result;
   VALUE vresult = Qnil;
   
   if ((argc < 0) || (argc > 3)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__Sample, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__Audio, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::Sample const *","play", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::Audio const *","play", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::Sample * >(argp1);
+  arg1 = reinterpret_cast< Gosu::Audio * >(argp1);
   if (argc > 0) {
     ecode2 = SWIG_AsVal_double(argv[0], &val2);
     if (!SWIG_IsOK(ecode2)) {
@@ -7937,13 +7937,13 @@ _wrap_Sample_play(int argc, VALUE *argv, VALUE self) {
   }
   {
     try {
-      result = ((Gosu::Sample const *)arg1)->play(arg2,arg3,arg4);
+      result = ((Gosu::Audio const *)arg1)->play(arg2,arg3,arg4);
     }
     catch (const std::exception& e) {
       SWIG_exception(SWIG_RuntimeError, e.what());
     }
   }
-  vresult = SWIG_NewPointerObj((new Gosu::SampleInstance(static_cast< const Gosu::SampleInstance& >(result))), SWIGTYPE_p_Gosu__SampleInstance, SWIG_POINTER_OWN |  0 );
+  vresult = SWIG_NewPointerObj((new Gosu::AudioStream(static_cast< const Gosu::AudioStream& >(result))), SWIGTYPE_p_Gosu__AudioStream, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -7951,8 +7951,8 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_Sample_play_pan(int argc, VALUE *argv, VALUE self) {
-  Gosu::Sample *arg1 = (Gosu::Sample *) 0 ;
+_wrap_Audio_play_pan(int argc, VALUE *argv, VALUE self) {
+  Gosu::Audio *arg1 = (Gosu::Audio *) 0 ;
   double arg2 ;
   double arg3 = (double) 1 ;
   double arg4 = (double) 1 ;
@@ -7967,17 +7967,17 @@ _wrap_Sample_play_pan(int argc, VALUE *argv, VALUE self) {
   int ecode4 = 0 ;
   bool val5 ;
   int ecode5 = 0 ;
-  SwigValueWrapper< Gosu::SampleInstance > result;
+  SwigValueWrapper< Gosu::AudioStream > result;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 4)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__Sample, 0 |  0 );
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_Gosu__Audio, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::Sample const *","play_pan", 1, self )); 
+    SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "Gosu::Audio const *","play_pan", 1, self )); 
   }
-  arg1 = reinterpret_cast< Gosu::Sample * >(argp1);
+  arg1 = reinterpret_cast< Gosu::Audio * >(argp1);
   ecode2 = SWIG_AsVal_double(argv[0], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), Ruby_Format_TypeError( "", "double","play_pan", 2, argv[0] ));
@@ -8006,13 +8006,13 @@ _wrap_Sample_play_pan(int argc, VALUE *argv, VALUE self) {
   }
   {
     try {
-      result = ((Gosu::Sample const *)arg1)->play_pan(arg2,arg3,arg4,arg5);
+      result = ((Gosu::Audio const *)arg1)->play_pan(arg2,arg3,arg4,arg5);
     }
     catch (const std::exception& e) {
       SWIG_exception(SWIG_RuntimeError, e.what());
     }
   }
-  vresult = SWIG_NewPointerObj((new Gosu::SampleInstance(static_cast< const Gosu::SampleInstance& >(result))), SWIGTYPE_p_Gosu__SampleInstance, SWIG_POINTER_OWN |  0 );
+  vresult = SWIG_NewPointerObj((new Gosu::AudioStream(static_cast< const Gosu::AudioStream& >(result))), SWIGTYPE_p_Gosu__AudioStream, SWIG_POINTER_OWN |  0 );
   return vresult;
 fail:
   return Qnil;
@@ -8020,8 +8020,8 @@ fail:
 
 
 SWIGINTERN void
-free_Gosu_Sample(void *self) {
-    Gosu::Sample *arg1 = (Gosu::Sample *)self;
+free_Gosu_Audio(void *self) {
+    Gosu::Audio *arg1 = (Gosu::Audio *)self;
     SWIG_RubyRemoveTracking(arg1);
     delete arg1;
 }
@@ -11254,13 +11254,13 @@ fail:
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
+static swig_type_info _swigt__p_Gosu__Audio = {"_p_Gosu__Audio", "Gosu::Audio *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_Gosu__AudioStream = {"_p_Gosu__AudioStream", "Gosu::AudioStream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__Button = {"_p_Gosu__Button", "Gosu::Button *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__Color = {"_p_Gosu__Color", "Gosu::Color *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__Font = {"_p_Gosu__Font", "Gosu::Font *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__GLTexInfo = {"_p_Gosu__GLTexInfo", "Gosu::GLTexInfo *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__Image = {"_p_Gosu__Image", "Gosu::Image *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Gosu__Sample = {"_p_Gosu__Sample", "Gosu::Sample *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Gosu__SampleInstance = {"_p_Gosu__SampleInstance", "Gosu::SampleInstance *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__Song = {"_p_Gosu__Song", "Gosu::Song *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__TextInput = {"_p_Gosu__TextInput", "Gosu::TextInput *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Gosu__Window = {"_p_Gosu__Window", "Gosu::Window *", 0, 0, (void*)0, 0};
@@ -11270,13 +11270,13 @@ static swig_type_info _swigt__p_std__arrayT_double_16_t = {"_p_std__arrayT_doubl
 static swig_type_info _swigt__p_std__string = {"_p_std__string", "std::string *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_Gosu__Audio,
+  &_swigt__p_Gosu__AudioStream,
   &_swigt__p_Gosu__Button,
   &_swigt__p_Gosu__Color,
   &_swigt__p_Gosu__Font,
   &_swigt__p_Gosu__GLTexInfo,
   &_swigt__p_Gosu__Image,
-  &_swigt__p_Gosu__Sample,
-  &_swigt__p_Gosu__SampleInstance,
   &_swigt__p_Gosu__Song,
   &_swigt__p_Gosu__TextInput,
   &_swigt__p_Gosu__Window,
@@ -11286,13 +11286,13 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__string,
 };
 
+static swig_cast_info _swigc__p_Gosu__Audio[] = {  {&_swigt__p_Gosu__Audio, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Gosu__AudioStream[] = {  {&_swigt__p_Gosu__AudioStream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__Button[] = {  {&_swigt__p_Gosu__Button, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__Color[] = {  {&_swigt__p_Gosu__Color, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__Font[] = {  {&_swigt__p_Gosu__Font, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__GLTexInfo[] = {  {&_swigt__p_Gosu__GLTexInfo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__Image[] = {  {&_swigt__p_Gosu__Image, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Gosu__Sample[] = {  {&_swigt__p_Gosu__Sample, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Gosu__SampleInstance[] = {  {&_swigt__p_Gosu__SampleInstance, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__Song[] = {  {&_swigt__p_Gosu__Song, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__TextInput[] = {  {&_swigt__p_Gosu__TextInput, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Gosu__Window[] = {  {&_swigt__p_Gosu__Window, 0, 0, 0},{0, 0, 0, 0}};
@@ -11302,13 +11302,13 @@ static swig_cast_info _swigc__p_std__arrayT_double_16_t[] = {  {&_swigt__p_std__
 static swig_cast_info _swigc__p_std__string[] = {  {&_swigt__p_std__string, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_Gosu__Audio,
+  _swigc__p_Gosu__AudioStream,
   _swigc__p_Gosu__Button,
   _swigc__p_Gosu__Color,
   _swigc__p_Gosu__Font,
   _swigc__p_Gosu__GLTexInfo,
   _swigc__p_Gosu__Image,
-  _swigc__p_Gosu__Sample,
-  _swigc__p_Gosu__SampleInstance,
   _swigc__p_Gosu__Song,
   _swigc__p_Gosu__TextInput,
   _swigc__p_Gosu__Window,
@@ -11683,31 +11683,31 @@ SWIGEXPORT void Init_gosu(void) {
   SwigClassImage.trackObjects = 1;
   rb_define_module_function(mGosu, "fps", VALUEFUNC(_wrap_fps), -1);
   
-  SwigClassSampleInstance.klass = rb_define_class_under(mGosu, "SampleInstance", rb_cObject);
-  SWIG_TypeClientData(SWIGTYPE_p_Gosu__SampleInstance, (void *) &SwigClassSampleInstance);
-  rb_define_alloc_func(SwigClassSampleInstance.klass, _wrap_SampleInstance_allocate);
-  rb_define_method(SwigClassSampleInstance.klass, "initialize", VALUEFUNC(_wrap_new_SampleInstance), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "playing?", VALUEFUNC(_wrap_SampleInstance_playingq___), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "paused?", VALUEFUNC(_wrap_SampleInstance_pausedq___), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "pause", VALUEFUNC(_wrap_SampleInstance_pause), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "resume", VALUEFUNC(_wrap_SampleInstance_resume), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "stop", VALUEFUNC(_wrap_SampleInstance_stop), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "volume=", VALUEFUNC(_wrap_SampleInstance_volumee___), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "pan=", VALUEFUNC(_wrap_SampleInstance_pane___), -1);
-  rb_define_method(SwigClassSampleInstance.klass, "speed=", VALUEFUNC(_wrap_SampleInstance_speede___), -1);
-  SwigClassSampleInstance.mark = 0;
-  SwigClassSampleInstance.destroy = (void (*)(void *)) free_Gosu_SampleInstance;
-  SwigClassSampleInstance.trackObjects = 1;
+  SwigClassAudioStream.klass = rb_define_class_under(mGosu, "AudioStream", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_Gosu__AudioStream, (void *) &SwigClassAudioStream);
+  rb_define_alloc_func(SwigClassAudioStream.klass, _wrap_AudioStream_allocate);
+  rb_define_method(SwigClassAudioStream.klass, "initialize", VALUEFUNC(_wrap_new_AudioStream), -1);
+  rb_define_method(SwigClassAudioStream.klass, "playing?", VALUEFUNC(_wrap_AudioStream_playingq___), -1);
+  rb_define_method(SwigClassAudioStream.klass, "paused?", VALUEFUNC(_wrap_AudioStream_pausedq___), -1);
+  rb_define_method(SwigClassAudioStream.klass, "pause", VALUEFUNC(_wrap_AudioStream_pause), -1);
+  rb_define_method(SwigClassAudioStream.klass, "resume", VALUEFUNC(_wrap_AudioStream_resume), -1);
+  rb_define_method(SwigClassAudioStream.klass, "stop", VALUEFUNC(_wrap_AudioStream_stop), -1);
+  rb_define_method(SwigClassAudioStream.klass, "volume=", VALUEFUNC(_wrap_AudioStream_volumee___), -1);
+  rb_define_method(SwigClassAudioStream.klass, "pan=", VALUEFUNC(_wrap_AudioStream_pane___), -1);
+  rb_define_method(SwigClassAudioStream.klass, "speed=", VALUEFUNC(_wrap_AudioStream_speede___), -1);
+  SwigClassAudioStream.mark = 0;
+  SwigClassAudioStream.destroy = (void (*)(void *)) free_Gosu_AudioStream;
+  SwigClassAudioStream.trackObjects = 1;
   
-  SwigClassSample.klass = rb_define_class_under(mGosu, "Sample", rb_cObject);
-  SWIG_TypeClientData(SWIGTYPE_p_Gosu__Sample, (void *) &SwigClassSample);
-  rb_define_alloc_func(SwigClassSample.klass, _wrap_Sample_allocate);
-  rb_define_method(SwigClassSample.klass, "initialize", VALUEFUNC(_wrap_new_Sample), -1);
-  rb_define_method(SwigClassSample.klass, "play", VALUEFUNC(_wrap_Sample_play), -1);
-  rb_define_method(SwigClassSample.klass, "play_pan", VALUEFUNC(_wrap_Sample_play_pan), -1);
-  SwigClassSample.mark = 0;
-  SwigClassSample.destroy = (void (*)(void *)) free_Gosu_Sample;
-  SwigClassSample.trackObjects = 1;
+  SwigClassAudio.klass = rb_define_class_under(mGosu, "Audio", rb_cObject);
+  SWIG_TypeClientData(SWIGTYPE_p_Gosu__Audio, (void *) &SwigClassAudio);
+  rb_define_alloc_func(SwigClassAudio.klass, _wrap_Audio_allocate);
+  rb_define_method(SwigClassAudio.klass, "initialize", VALUEFUNC(_wrap_new_Audio), -1);
+  rb_define_method(SwigClassAudio.klass, "play", VALUEFUNC(_wrap_Audio_play), -1);
+  rb_define_method(SwigClassAudio.klass, "play_pan", VALUEFUNC(_wrap_Audio_play_pan), -1);
+  SwigClassAudio.mark = 0;
+  SwigClassAudio.destroy = (void (*)(void *)) free_Gosu_Audio;
+  SwigClassAudio.trackObjects = 1;
   
   SwigClassSong.klass = rb_define_class_under(mGosu, "Song", rb_cObject);
   SWIG_TypeClientData(SWIGTYPE_p_Gosu__Song, (void *) &SwigClassSong);
