@@ -108,7 +108,7 @@ class Gosu::Sample < Gosu::Audio
   alias initialize_without_window initialize
 
   def initialize(*args)
-    Gosu.deprecation_message("Using Gosu::Sample has been deprecated in Gosu 0.x.x. Use the new Audio-class instead.")
+    Gosu.deprecation_message("Gosu::Sample is deprecated; use Gosu::Audio instead.")
     
     if args.first.is_a? Gosu::Window
       args.shift
