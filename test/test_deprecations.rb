@@ -2,12 +2,18 @@
 require_relative 'test_helper'
 
 class TestDeprecations < Minitest::Test
+  include TestHelper
+  
   @@win = Gosu::Window.new(100, 100)
   
   def test_gosu_module_constants
     # Backward compatibility
     assert_output "", /DEPRECATION WARNING: Gosu::GOSU_COPYRIGHT_NOTICE is deprecated; use LICENSES instead./ do
       assert_equal Gosu::LICENSES, Gosu::GOSU_COPYRIGHT_NOTICE
+    end
+    
+    assert_output "", /DEPRECATION WARNING: Gosu::Sample is deprecated; use Gosu::Sound instead./ do
+      Gosu::Sample.new(media_path('0614.ogg'))
     end
   end
 
