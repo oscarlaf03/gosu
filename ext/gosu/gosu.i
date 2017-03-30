@@ -828,7 +828,7 @@ namespace Gosu
 
 // Audio:
 
-%ignore Gosu::Sample::Sample(Reader reader);
+%ignore Gosu::Sound::Sound(Reader reader);
 %ignore Gosu::Song::Song(Reader reader);
 %rename("playing?") playing;
 %rename("paused?") paused;

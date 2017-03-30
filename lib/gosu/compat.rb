@@ -104,11 +104,11 @@ class Gosu::Image
 end
 
 # No need to pass a Window to Sample.
-class Gosu::Sample
+class Gosu::Sample < Gosu::Sound
   alias initialize_without_window initialize
 
   def initialize(*args)
-    Gosu.deprecation_message("Gosu::Sample is deprecated; use Gosu::Audio instead.")
+    Gosu.deprecation_message("Gosu::Sample is deprecated; use Gosu::Sound instead.")
     
     if args.first.is_a? Gosu::Window
       args.shift

@@ -65,12 +65,12 @@ namespace
     #define CONSTRUCTOR_END
 #endif
 
-Gosu::SampleInstance::SampleInstance(int handle, int extra)
+Gosu::Channel::Channel(int handle, int extra)
 : handle(handle), extra(extra)
 {
 }
 
-bool Gosu::SampleInstance::playing() const
+bool Gosu::Channel::playing() const
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return false;
@@ -80,7 +80,7 @@ bool Gosu::SampleInstance::playing() const
     return state == AL_PLAYING;
 }
 
-bool Gosu::SampleInstance::paused() const
+bool Gosu::Channel::paused() const
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return false;
@@ -90,7 +90,7 @@ bool Gosu::SampleInstance::paused() const
     return state == AL_PAUSED;
 }
 
-void Gosu::SampleInstance::pause()
+void Gosu::Channel::pause()
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return;
@@ -98,7 +98,7 @@ void Gosu::SampleInstance::pause()
     alSourcePause(source);
 }
 
-void Gosu::SampleInstance::resume()
+void Gosu::Channel::resume()
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return;
@@ -110,7 +110,7 @@ void Gosu::SampleInstance::resume()
     }
 }
 
-void Gosu::SampleInstance::stop()
+void Gosu::Channel::stop()
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return;
@@ -118,7 +118,7 @@ void Gosu::SampleInstance::stop()
     alSourceStop(source);
 }
 
-void Gosu::SampleInstance::change_volume(double volume)
+void Gosu::Channel::change_volume(double volume)
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return;
@@ -126,7 +126,7 @@ void Gosu::SampleInstance::change_volume(double volume)
     alSourcef(source, AL_GAIN, volume);
 }
 
-void Gosu::SampleInstance::change_pan(double pan)
+void Gosu::Channel::change_pan(double pan)
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return;
@@ -134,7 +134,7 @@ void Gosu::SampleInstance::change_pan(double pan)
     alSource3f(source, AL_POSITION, pan * 10, 0, 0);
 }
 
-void Gosu::SampleInstance::change_speed(double speed)
+void Gosu::Channel::change_speed(double speed)
 {
     ALuint source = al_channel_management->source_if_still_playing(handle, extra);
     if (source == ALChannelManagement::NO_SOURCE) return;
@@ -142,11 +142,11 @@ void Gosu::SampleInstance::change_speed(double speed)
     alSourcef(source, AL_PITCH, speed);
 }
 
-struct Gosu::Sample::SampleData
+struct Gosu::Sound::SoundData
 {
     ALuint buffer, source;
 
-    SampleData(AudioFile& audio_file)
+    SoundData(AudioFile& audio_file)
     {
         alGenBuffers(1, &buffer);
         alBufferData(buffer, audio_file.format(), &audio_file.decoded_data().front(),
@@ -154,7 +154,7 @@ struct Gosu::Sample::SampleData
                      audio_file.sample_rate());
     }
     
-    ~SampleData()
+    ~SoundData()
     {
         // It's hard to free things in the right order in Ruby/Gosu.
         // Make sure buffer isn't deleted after the context/device are shut down.
@@ -166,11 +166,11 @@ struct Gosu::Sample::SampleData
     }
 
 private:
-    SampleData(const SampleData&);
-    SampleData& operator=(const SampleData&);
+    SoundData(const SoundData&);
+    SoundData& operator=(const SoundData&);
 };
 
-Gosu::Sample::Sample(const std::string& filename)
+Gosu::Sound::Sound(const std::string& filename)
 {
     CONSTRUCTOR_BEGIN;
 
@@ -178,43 +178,43 @@ Gosu::Sample::Sample(const std::string& filename)
         Gosu::Buffer buffer;
         Gosu::load_file(buffer, filename);
         OggFile ogg_file(buffer.front_reader());
-        data.reset(new SampleData(ogg_file));
+        data.reset(new SoundData(ogg_file));
     }
     else {
         WAVE_FILE audio_file(filename);
-        data.reset(new SampleData(audio_file));
+        data.reset(new SoundData(audio_file));
     }
     
     CONSTRUCTOR_END;
 }
 
-Gosu::Sample::Sample(Reader reader)
+Gosu::Sound::Sound(Reader reader)
 {
     CONSTRUCTOR_BEGIN;
 
     if (is_ogg_file(reader)) {
         OggFile ogg_file(reader);
-        data.reset(new SampleData(ogg_file));
+        data.reset(new SoundData(ogg_file));
     }
     else {
         WAVE_FILE audio_file(reader);
-        data.reset(new SampleData(audio_file));
+        data.reset(new SoundData(audio_file));
     }
     
     CONSTRUCTOR_END;
 }
 
-Gosu::SampleInstance Gosu::Sample::play(double volume, double speed, bool looping) const
+Gosu::Channel Gosu::Sound::play(double volume, double speed, bool looping) const
 {
     return play_pan(0, volume, speed, looping);
 }
 
-Gosu::SampleInstance Gosu::Sample::play_pan(double pan, double volume, double speed,
+Gosu::Channel Gosu::Sound::play_pan(double pan, double volume, double speed,
     bool looping) const
 {
     std::pair<int, int> channel_and_token = al_channel_management->reserve_channel();
     if (channel_and_token.first == ALChannelManagement::NO_FREE_CHANNEL) {
-        return Gosu::SampleInstance(channel_and_token.first, channel_and_token.second);
+        return Gosu::Channel(channel_and_token.first, channel_and_token.second);
     }
     
     ALuint source = al_channel_management->source_if_still_playing(channel_and_token.first,
@@ -228,7 +228,7 @@ Gosu::SampleInstance Gosu::Sample::play_pan(double pan, double volume, double sp
     alSourcei(source, AL_LOOPING, looping ? AL_TRUE : AL_FALSE);
     alSourcePlay(source);
 
-    return Gosu::SampleInstance(channel_and_token.first, channel_and_token.second);
+    return Gosu::Channel(channel_and_token.first, channel_and_token.second);
 }
 
 class Gosu::Song::BaseData

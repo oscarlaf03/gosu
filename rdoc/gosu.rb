@@ -498,37 +498,37 @@ module Gosu
   # parameters.
   #
   # @see Gosu::Song
-  class Audio
+  class Sound
     ##
-    # Loads an audio clip from a file.
+    # Loads an sound from a file.
     #
     # (Passing a Window reference is not necessary anymore, please use the first overload from now on.)
     #
     # @overload initialize(filename)
     # @overload initialize(window, filename)
     #
-    # @param filename [String] the path to load the audio clip from.
+    # @param filename [String] the path to load the sound from.
     def initialize(filename); end
 
     ##
-    # Plays the audio clip without panning.
+    # Plays the sound without panning.
     #
     # Playback speed is limited only by the underlying audio library, and both very large and very small values should work just fine.
     #
-    # @return [AudioStream]
+    # @return [Channel]
     # @param volume [Float] the playback volume, in the range [0.0; 1.0], where 0 is completely silent and 1 is full volume.
     # @param speed [Float] the playback speed.
-    # @param looping [true, false] whether the audio clip should play in a loop.
+    # @param looping [true, false] whether the sound should play in a loop.
     #
     # @see #play_pan
     def play(volume=1, speed=1, looping=false); end
 
     ##
-    # Plays the audio clip with panning.
+    # Plays the sound with panning.
     #
-    # @note audio clips played with this method will not be as loud as those played with {#play}, even if `pan` is 0. This is due to a limitation in the way panning works.
+    # @note sounds played with this method will not be as loud as those played with {#play}, even if `pan` is 0. This is due to a limitation in the way panning works.
     #
-    # @return [AudioStream]
+    # @return [Channel]
     # @param pan [Float] the amount of panning. 0.0 is centered.
     # @param (see #play)
     #
@@ -537,15 +537,15 @@ module Gosu
   end
   
   ##
-  # @deprecated Use {#Audio} instead
+  # @deprecated Use {#Sound} instead
   class Sample
   end
 
   ##
-  # An instance of a {Gosu::Audio} playing. Can be used to stop sounds dynamically, or to check if they are finished.
+  # An instance of a {Gosu::Sound} playing. Can be used to stop sounds dynamically, or to check if they are finished.
   #
-  # It is recommended to throw away audio streams as soon as possible, as holding onto them for a long time can prevent unneeded audio streams being properly disposed.
-  class AudioStream
+  # It is recommended to throw away channels as soon as possible, as holding onto them for a long time can prevent unneeded channels being properly disposed.
+  class Channel
     ##
     # Set the playback volume, in the range [0.0; 1.0], where 0 is completely silent and 1 is full volume.
     # @param [Float]
@@ -562,40 +562,40 @@ module Gosu
     attr_writer :pan
 
     ##
-    # Stops playback of this audio stream. After calling this method, the audio stream is useless and can be discarded.
+    # Stops playback of this channel. After calling this method, the channel is useless and can be discarded.
     #
-    # Calling `stop` after the audio stream has finished is harmless and has no effect.
+    # Calling `stop` after the channel has finished is harmless and has no effect.
     #
     # @return [void]
     def stop; end
 
     ##
-    # Pauses the audio stream, to be resumed afterwards.
+    # Pauses the channel, to be resumed afterwards.
     #
-    # @note The audio clip will still occupy a playback channel while paused.
+    # @note The sound will still occupy a playback channel while paused.
     #
     # @return [void]
     def pause; end
 
     ##
-    # Resumes playback of the audio stream.
+    # Resumes playback of the channel.
     #
     # @return [void]
     def resume; end
 
     ##
-    # @return [true, false] whether the audio stream is paused.
+    # @return [true, false] whether the channel is paused.
     def paused?; end
 
     ##
-    # @return [true, false] whether the audio stream is playing.
+    # @return [true, false] whether the channel is playing.
     def playing?; end
   end
 
   ##
   # Songs are less flexible than samples in that only one can be played at a time, with no panning or speed control.
   #
-  # @see Gosu::Audio
+  # @see Gosu::Sound
   class Song
     class << self
       ##
