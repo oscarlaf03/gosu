@@ -8,7 +8,6 @@ class TestAudio < Minitest::Test
   
   def test_sample
     sound = Gosu::Sample.new(media_path('0614.ogg'))
-    
     channel = sound.play(1,1,true)
     interactive_cli("Do you hear a StarWars like Blaster sound?")
     
@@ -52,7 +51,7 @@ class TestAudio < Minitest::Test
     interactive_cli("Right speaker again but slowmotion this time?")
     
   ensure
-    channel.stop
+    channel && channel.stop
   end
   
   class SongTestWindow < Gosu::Window

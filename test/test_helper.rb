@@ -3,8 +3,9 @@ require "minitest/autorun"
 require "gosu" unless defined? Gosu
 
 module TestHelper
+  # TODO: Should be __dir__ after we drop Ruby 1.x support...
   def media_path(fname='')
-    File.join(__dir__, "media", fname)
+    File.join(File.dirname(__FILE__), "media", fname)
   end
 end
 
