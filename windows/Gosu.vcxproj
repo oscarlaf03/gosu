@@ -184,7 +184,6 @@
     <ClCompile Include="..\src\FileUnix.cpp" />
     <ClCompile Include="..\src\FileWin.cpp" />
     <ClCompile Include="..\src\Font.cpp" />
-    <ClCompile Include="..\src\FormattedString.cpp" />
     <ClCompile Include="..\src\GosuAppDelegate.cpp" />
     <ClCompile Include="..\src\GosuGLView.cpp" />
     <ClCompile Include="..\src\GosuViewController.cpp" />
@@ -196,6 +195,7 @@
     <ClCompile Include="..\src\Inspection.cpp" />
     <ClCompile Include="..\src\LargeImageData.cpp" />
     <ClCompile Include="..\src\Macro.cpp" />
+    <ClCompile Include="..\src\MarkupParser.cpp" />
     <ClCompile Include="..\src\Math.cpp" />
     <ClCompile Include="..\src\Resolution.cpp" />
     <ClCompile Include="..\src\ResolutionApple.cpp" />

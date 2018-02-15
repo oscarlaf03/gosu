@@ -55,8 +55,4 @@ namespace Gosu
     //! \param font_flags Binary combination of members of the FontFlags enum.
     Bitmap create_text(const std::string& text, const std::string& font_name, int font_height,
                        int line_spacing, int width, Alignment align, unsigned font_flags = 0);
-    
-    //! Registers a new HTML-style entity that can subsequently be used
-    //! with Gosu::Font and Gosu::create_text. The name is given without & and ;.
-    void register_entity(const std::string& name, const Bitmap& replacement);
 }

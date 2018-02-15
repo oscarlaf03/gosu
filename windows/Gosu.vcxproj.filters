@@ -48,9 +48,6 @@
     <ClCompile Include="..\src\Font.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\FormattedString.cpp">
-      <Filter>Implementation</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\GosuAppDelegate.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
@@ -82,6 +79,9 @@
       <Filter>Implementation</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Macro.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MarkupParser.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Math.cpp">
